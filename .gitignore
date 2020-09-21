@@ -17,3 +17,5 @@ yarn-error.log
 # Arquivos do PhpStorm
 .idea
 .idea_modules/
+/public/css/
+/public/js/
