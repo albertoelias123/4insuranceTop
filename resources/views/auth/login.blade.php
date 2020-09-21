@@ -8,7 +8,7 @@
     <meta name="author" content="Themesbox">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Theta - Login</title>
+    <title>{{ config('app.name') }} - Login</title>
     <!-- Fevicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <!-- Start CSS -->
@@ -29,14 +29,14 @@
                     <!-- Start col -->
                     <div class="col-md-6 col-lg-5">
                         <div class="auth-box-left">
-                            <div class="card">
+                            <div class="card" style="height: 493px">
                                 <div class="card-body">
                                     <h4>@lang('auth.initialMessage')</h4>
                                     <div class="auth-box-icon">
                                         <img src="assets/images/authentication/auth-box-icon.svg" class="img-fluid" alt="auth-box-icon">
                                     </div>
                                     <div class="auth-box-logo">
-                                        <img src="assets/images/logo.svg" class="img-fluid " alt="logo">
+                                        <img src="https://4training.com.br/images/logotipia.png" class="img-fluid " alt="logo">
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                     <div class="col-md-6 col-lg-5">
                         <!-- Start Auth Box -->
                         <div class="auth-box-right">
-                            <div class="card">
+                            <div class="card" style="height: 493px">
                                 <div class="card-body">
                                     <x-jet-validation-errors class="mb-4 text-danger" />
                                     @if (session('status'))
@@ -57,36 +57,31 @@
                                     @endif
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
-                                        <h4 class="text-primary mb-4">Log in !</h4>
+                                        <h4 class="text-primary mb-4">@lang('auth.login_message')!</h4>
                                         <div class="form-group">
-                                            <x-jet-input type="text" class="form-control" id="email" type="email" name="email" :value="old('email')" placeholder="Enter Email here" required autofocus/>
+                                            <x-jet-input type="text" class="form-control" id="email" type="email" name="email" :value="old('email')" placeholder="{{__('auth.login_emailplaceholder')}}" required autofocus/>
                                         </div>
                                         <div class="form-group">
-                                            <x-jet-input type="password" class="form-control" id="password" name="password" placeholder="Enter Password here" required/>
+                                            <x-jet-input type="password" class="form-control" id="password" name="password" placeholder="{{__('auth.login_pwdplaceholder')}}" required/>
                                         </div>
                                         <div class="form-row mb-3">
                                             <div class="col-sm-6">
                                                 <div class="custom-control custom-checkbox">
-                                                  <input type="checkbox" class="custom-control-input" id="rememberme" name="remember">
-                                                  <label class="custom-control-label font-14" for="rememberme">Remember Me</label>
+                                                  <input type="checkbox" class="custom-control-input" id="rememberme" nome="remember">
+                                                  <label class="custom-control-label font-14" for="rememberme">@lang('auth.login_remember')</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                               <div class="forgot-psw">
-                                                <a id="forgot-psw" href="{{url('/user-forgotpsw')}}" class="font-14">Forgot Password?</a>
+                                                <a id="forgot-psw" href="{{ route('password.request') }}" class="font-14">@lang('auth.login_forgotpwd')</a>
                                               </div>
                                             </div>
                                         </div>
-                                      <button type="submit" class="btn btn-success btn-lg btn-block font-18">Log in Now</button>
+                                      <button type="submit" class="btn btn-success btn-lg btn-block font-18">@lang('auth.login_buttonconect')</button>
                                     </form>
-                                    <div class="login-or">
-                                        <h6 class="text-muted">OR</h6>
-                                    </div>
                                     <div class="social-login text-center">
-                                        <button type="submit" class="btn btn-primary-rgba btn-lg btn-block font-18"><i class="mdi mdi-facebook mr-2"></i>Log in with Facebook</button>
-                                        <button type="submit" class="btn btn-danger-rgba btn-lg btn-block font-18"><i class="mdi mdi-google mr-2"></i>Log in with Google</button>
                                     </div>
-                                    <p class="mb-0 mt-3">Don't have a account? <a href="{{url('/user-register')}}">Sign up</a></p>
+                                    <p class="mb-0 mt-3">@lang('auth.login_noaccount') <a href="{{route('register')}}"> @lang('auth.login_sign')</a></p>
                                 </div>
                             </div>
                         </div>
