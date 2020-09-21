@@ -19,3 +19,4 @@ yarn-error.log
 .idea_modules/
 /public/css/
 /public/js/
+/public/mix-manifest.json

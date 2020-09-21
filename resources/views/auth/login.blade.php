@@ -31,7 +31,7 @@
                         <div class="auth-box-left">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4>Your comminuty awaits.</h4>
+                                    <h4>@lang('auth.initialMessage')</h4>
                                     <div class="auth-box-icon">
                                         <img src="assets/images/authentication/auth-box-icon.svg" class="img-fluid" alt="auth-box-icon">
                                     </div>

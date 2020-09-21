@@ -1,12 +1,14 @@
 {
-    "name": "laravel/laravel",
+    "name": "4insurance/app",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Projeto 4 Insurance.",
     "keywords": [
-        "framework",
-        "laravel"
+        "insurance",
+        "4group",
+        "laravel",
+        "platform"
     ],
-    "license": "MIT",
+    "license": "-",
     "require": {
         "php": "^7.3",
         "fideloper/proxy": "^4.2",
@@ -16,7 +18,8 @@
         "laravel/jetstream": "^1.2",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "lucascudo/laravel-pt-br-localization": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
