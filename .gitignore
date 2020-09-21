@@ -4,6 +4,8 @@
 /storage/*.key
 composer.phar
 /vendor
+/resources/assets
+/public/assets
 .env
 .env.backup
 .phpunit.result.cache
