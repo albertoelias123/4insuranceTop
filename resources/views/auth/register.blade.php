@@ -31,14 +31,14 @@
                 <!-- Start col -->
                 <div class="col-md-6 col-lg-5">
                     <div class="auth-box-left">
-                        <div class="card">
+                        <div class="card" style="padding-bottom: 0px;height: 550px">
                             <div class="card-body">
                                 <h4>@lang('auth.reg_initialMessage')</h4>
                                 <div class="auth-box-icon">
                                     <img src="assets/images/authentication/auth-box-icon.svg" class="img-fluid" alt="auth-box-icon">
                                 </div>
                                 <div class="auth-box-logo">
-                                    <img src="https://4training.com.br/images/logotipia.png" class="img-fluid " alt="logo">
+                                    <img src="{{ asset('assets/images/4others_insurance_black.png') }}" class="img-fluid " alt="logo">
                                 </div>
                             </div>
                         </div>
@@ -49,8 +49,8 @@
                 <div class="col-md-6 col-lg-5">
                     <!-- Start Auth Box -->
                     <div class="auth-box-right">
-                        <div class="card">
-                            <div class="card-body">
+                        <div class="card" style="padding-bottom: 0px;height: 550px">
+                            <div class="card-body" style="display: flex;flex-flow: column;align-items: center;justify-content: center;">
                                 <x-jet-validation-errors class="mb-4 text-danger" />
                                 @if (session('status'))
                                     <div class="mb-4 font-medium text-sm text-green-600">
@@ -62,6 +62,9 @@
                                     <h4 class="text-primary mb-4">@lang('auth.reg_sign')</h4>
                                     <div class="form-group">
                                         <input type="text" name="name" class="form-control" id="username" placeholder="{{__('auth.reg_nameplaceholder')}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="documento" class="form-control" id="documento" placeholder="{{__('auth.reg_documentoplaceholder')}}" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control" id="email" placeholder="{{__('auth.login_emailplaceholder')}}" required>
@@ -76,7 +79,7 @@
                                         <div class="col-sm-12">
                                             <div class="custom-control custom-checkbox">
                                                 <input required type="checkbox" class="custom-control-input" id="terms">
-                                                <label class="custom-control-label font-14" for="terms">@lang('auth.reg_terms') 4Insurance</label>
+                                                <label class="custom-control-label font-14" for="terms">@lang('auth.reg_terms') {{ config('app.name') }}</label>
                                             </div>
                                         </div>
                                     </div>
@@ -103,6 +106,11 @@
 <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
 <script src="{{ asset('assets/js/detect.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+<script src="{{ asset('assets/plugins/bootstrap-inputmask/jquery.inputmask.bundle.min.js') }}"></script>
+<script>
+    $('#documento').inputmask('999.999.999-99');
+    $('#email').inputmask("email");
+</script>
 <!-- End js -->
 </body>
 </html>

@@ -29,14 +29,14 @@
                     <!-- Start col -->
                     <div class="col-md-6 col-lg-5">
                         <div class="auth-box-left">
-                            <div class="card">
+                            <div class="card" style="height: 550px">
                                 <div class="card-body">
                                     <h4>@lang('auth.forg_mensagem')</h4>
                                     <div class="auth-box-icon">
                                         <img src="assets/images/authentication/auth-box-icon-forgot.svg" class="img-fluid" alt="auth-box-icon">
                                     </div>
                                     <div class="auth-box-logo">
-                                        <img src="https://4training.com.br/images/logotipia.png" class="img-fluid " alt="logo">
+                                        <img src="{{ asset('assets/images/4others_insurance_black.png') }}" class="img-fluid " alt="logo">
                                     </div>
                                 </div>
                             </div>
@@ -47,8 +47,8 @@
                     <div class="col-md-6 col-lg-5">
                         <!-- Start Auth Box -->
                         <div class="auth-box-right">
-                            <div class="card">
-                                <div class="card-body">
+                            <div class="card" style="padding-bottom: 0px; height: 550px">
+                                <div class="card-body" style="display: flex;flex-flow: column;justify-content: center;">
                                     <form method="POST" action="{{ route('password.email') }}">
                                         <h4 class="text-primary mb-4">@lang('auth.forg_esqsenha')</h4>
                                         <p class="mb-4">@lang('auth.forg_instruct')</p>
@@ -57,7 +57,7 @@
                                         </div>
                                       <button type="submit" class="btn btn-success btn-lg btn-block font-18">@lang('auth.forg_mail')</button>
                                     </form>
-                                    <p class="mb-0 mt-3">@lang('auth.forq_lembrasenha') <a href="{{url('/user-login')}}">@lang('auth.forg_conectar')</a></p>
+                                    <p class="mb-0 mt-3">@lang('auth.forq_lembrasenha') <a href="{{route('login')}}">@lang('auth.forg_conectar')</a></p>
                                 </div>
                             </div>
                         </div>

@@ -1,41 +1,62 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@section('title')
+    {{ config('app.name') }} - Perfil
+@endsection
+@extends('layouts.main')
+@section('style')
 
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @livewire('profile.update-profile-information-form')
+@endsection
+@section('rightbar-content')
+    <div class="breadcrumbbar">
+        <div class="row align-items-center">
+            <div class="col-md-8 col-lg-8">
+                <h4 class="page-title">{{ __('Profile') }}</h4>
+                <div class="breadcrumb-list">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Pagina Inicial</a></li>
+                        <li class="breadcrumb-item"><a href="#">Perfil</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contentbar">
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Profile') }}
+            </h2>
+        </x-slot>
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
+        <div>
+            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+                @livewire('profile.update-profile-information-form')
+
                 <x-jet-section-border />
-            
+
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.update-password-form')
                 </div>
-            @endif
 
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
                 <x-jet-section-border />
 
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.two-factor-authentication-form')
                 </div>
-            @endif
 
-            <x-jet-section-border />
+                <x-jet-section-border />
 
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.logout-other-browser-sessions-form')
-            </div>
+                <div class="mt-10 sm:mt-0">
+                    @livewire('profile.logout-other-browser-sessions-form')
+                </div>
 
-            <x-jet-section-border />
+                <x-jet-section-border />
 
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.delete-user-form')
+                <div class="mt-10 sm:mt-0">
+                    @livewire('profile.delete-user-form')
+                </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
+@section('script')
+
+@endsection

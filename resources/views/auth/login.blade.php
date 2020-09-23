@@ -29,14 +29,14 @@
                     <!-- Start col -->
                     <div class="col-md-6 col-lg-5">
                         <div class="auth-box-left">
-                            <div class="card" style="height: 493px">
+                            <div class="card" style="height: 550px">
                                 <div class="card-body">
                                     <h4>@lang('auth.initialMessage')</h4>
                                     <div class="auth-box-icon">
                                         <img src="assets/images/authentication/auth-box-icon.svg" class="img-fluid" alt="auth-box-icon">
                                     </div>
                                     <div class="auth-box-logo">
-                                        <img src="https://4training.com.br/images/logotipia.png" class="img-fluid " alt="logo">
+                                        <img src="{{ asset('assets/images/4others_insurance_black.png') }}" class="img-fluid " alt="logo">
                                     </div>
                                 </div>
                             </div>
@@ -47,8 +47,8 @@
                     <div class="col-md-6 col-lg-5">
                         <!-- Start Auth Box -->
                         <div class="auth-box-right">
-                            <div class="card" style="height: 493px">
-                                <div class="card-body">
+                            <div class="card" style="height: 550px">
+                                <div class="card-body" style="display: flex;flex-flow: column;justify-content: center;">
                                     <x-jet-validation-errors class="mb-4 text-danger" />
                                     @if (session('status'))
                                         <div class="mb-4 font-medium text-sm text-green-600">
@@ -59,7 +59,7 @@
                                         @csrf
                                         <h4 class="text-primary mb-4">@lang('auth.login_message')!</h4>
                                         <div class="form-group">
-                                            <x-jet-input type="text" class="form-control" id="email" type="email" name="email" :value="old('email')" placeholder="{{__('auth.login_emailplaceholder')}}" required autofocus/>
+                                            <x-jet-input type="text" class="form-control" id="documento" name="documento" :value="old('cpf')" placeholder="{{__('auth.login_documentoplaceholder')}}" required autofocus/>
                                         </div>
                                         <div class="form-group">
                                             <x-jet-input type="password" class="form-control" id="password" name="password" placeholder="{{__('auth.login_pwdplaceholder')}}" required/>
@@ -79,9 +79,7 @@
                                         </div>
                                       <button type="submit" class="btn btn-success btn-lg btn-block font-18">@lang('auth.login_buttonconect')</button>
                                     </form>
-                                    <div class="social-login text-center">
-                                    </div>
-                                    <p class="mb-0 mt-3">@lang('auth.login_noaccount') <a href="{{route('register')}}"> @lang('auth.login_sign')</a></p>
+                                    <p class="mb-0 mt-3" style="align-self: center">@lang('auth.login_noaccount') <a href="{{route('register')}}"> @lang('auth.login_sign')</a></p>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +100,10 @@
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
     <script src="{{ asset('assets/js/detect.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-inputmask/jquery.inputmask.bundle.min.js') }}"></script>
+    <script>
+        $('#documento').inputmask('999.999.999-99');
+    </script>
     <!-- End js -->
 </body>
 </html>

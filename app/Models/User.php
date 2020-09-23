@@ -56,5 +56,30 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+        'name'
     ];
+
+    /**
+     * Retorna a Pessoa associado a este Usuario
+     */
+    public function pessoa()
+    {
+        return $this->belongsTo('App\Models\Pessoa');
+    }
+
+    public function getNameAttribute($value)
+    {
+        return $this->pessoa->name;
+    }
+
+    public function getDocumentoAttribute($value)
+    {
+        return $this->pessoa->documento;
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->pessoa->name = $value;
+        $this->pessoa->save();
+    }
 }

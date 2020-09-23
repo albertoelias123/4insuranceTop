@@ -16,5 +16,3 @@ mix.js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
     ]);
-
-mix.copyDirectory('resources/assets', 'public/assets');
