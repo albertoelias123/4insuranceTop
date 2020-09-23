@@ -19,6 +19,8 @@
         <link href="{{ asset('assets/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/buttons.bootstrap4.min.css') }}">
 
         @livewireStyles
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
@@ -38,6 +40,8 @@
         </div>
         <!-- End Containerbar -->
         <!-- Start JS -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -46,6 +50,16 @@
         <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
         <script src="{{ asset('assets/js/vertical-menu.js') }}"></script>
         <script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/buttons/dataTables.buttons.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/buttons/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/buttons/buttons.print.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/buttons/buttons.html5.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/buttons/buttons.flash.js') }}"></script>
+        <script src="{{ asset('assets/js/dataTable/buttons/buttons.colVis.js') }}"></script>
+        @stack('datatablejs')
         @yield('script')
         <!-- Core JS -->
         <script src="{{ asset('assets/js/core.js') }}"></script>

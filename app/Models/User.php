@@ -19,13 +19,16 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    protected $with = ['pessoa'];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+//        'name',
+        'email', 'password',
     ];
 
     /**
@@ -47,6 +50,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'datetime:d/m/Y',
+        'updated_at' => 'datetime:d/m/Y'
     ];
 
     /**
@@ -56,7 +61,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
-        'name'
+//        'name'
     ];
 
     /**
@@ -67,19 +72,24 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Pessoa');
     }
 
-    public function getNameAttribute($value)
+    protected function defaultProfilePhotoUrl()
     {
-        return $this->pessoa->name;
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->pessoa->name).'&color=7F9CF5&background=EBF4FF';
     }
 
-    public function getDocumentoAttribute($value)
-    {
-        return $this->pessoa->documento;
-    }
+//    public function getNameAttribute($value)
+//    {
+//        return $this->pessoa->name;
+//    }
 
-    public function setNameAttribute($value)
-    {
-        $this->pessoa->name = $value;
-        $this->pessoa->save();
-    }
+//    public function getDocumentoAttribute($value)
+//    {
+//        return $this->pessoa->documento;
+//    }
+
+//    public function setNameAttribute($value)
+//    {
+//        $this->pessoa->name = $value;
+//        $this->pessoa->save();
+//    }
 }

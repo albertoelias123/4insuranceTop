@@ -9,9 +9,12 @@
         <!-- End Logobar -->
         <!-- Start Profilebar -->
         <div class="profilebar text-center">
-            <img src="{{ asset('assets/images/users/profile.svg') }}" class="img-fluid" alt="profile">
+            <div class="logobar">
+                <img src="{{ Auth::user()->profile_photo_url }}" class="logo logo-large" style="width: 80px; height: 80px; border-radius: 50%" alt="profile">
+                <img src="{{ Auth::user()->profile_photo_url }}" class="logo logo-small" style="width: 48px; height: 48px; border-radius: 50%" alt="profile">
+            </div>
             <div class="profilename">
-              <p>{{ Auth::user()->currentTeam->name }}</p>
+              <p>{{ Auth::user()->pessoa->name }} | {{ Auth::user()->currentTeam->name }}</p>
             </div>
             <div class="userbox">
                 <ul class="list-inline mb-0">
@@ -48,7 +51,7 @@
                 </li>
 
                 <li>
-                    <a href="javaScript:void();">
+                    <a href="{{ route('users.index') }}">
                         <img src="{{ asset('assets/images/svg-icon/tables.svg') }}" class="img-fluid" alt="dashboard"/>
                         <span>Usuários</span>
                     </a>
